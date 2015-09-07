@@ -1,0 +1,10 @@
+class Example5 {
+
+	boolean foo(Object o) {
+		System.err.println(o.toString());
+		if (o == null) {
+			return false;
+		}
+		return true;
+	}
+}

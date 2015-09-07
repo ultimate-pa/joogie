@@ -1,0 +1,1 @@
+cl -I "c:/Program Files/Java/jdk1.7.0_03/include/win32" -I "c:/Program Files/Java/jdk1.7.0_03/include/" -I "c:/Program Files/Microsoft Research/Z3-4.0/include" /LD main.c "C:/Program Files/Microsoft Research/Z3-4.0/bin/z3.lib"

@@ -1,0 +1,11 @@
+class Example9 {
+
+	// simplified version of a bug detected in Rachota
+	public boolean foo(String s) {
+		if (s.isEmpty()) {
+			System.err.println("empty");
+		}
+		// ...
+		return (s == null);
+	}
+}

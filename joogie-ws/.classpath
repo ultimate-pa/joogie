@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 7 (MacOS X Default)">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/args4j-2.0.18.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cfg-plugin.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/joogie.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/js.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsyntaxpane-0.9.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/normalizer.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/princess.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/scala-actors.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/scala-library.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/soot-2.5.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

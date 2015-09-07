@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension
+		point="org.eclipse.ui.popupMenus">
+		<objectContribution
+			id="org.joogie.plugin.popup"
+			objectClass="org.eclipse.jdt.core.IOpenable">
+			<visibility>
+				<objectClass name="org.eclipse.jdt.core.ICompilationUnit" />
+			</visibility>
+			<action
+				label="Run Joogie"
+				class="org.joogie.plugin.popup.actions.RunJoogieAction"
+				menubarPath="additions"
+				enablesFor="1"
+				id="org.joogie.plugin.popup.actions.RunJoogieAction"
+				icon="icons/joogie.png">
+			</action>
+		</objectContribution>
+	</extension>
+	
+	<extension
+		point="org.eclipse.ui.views">
+		<category
+			name="Joogie"
+			id="org.joogie.plugin.views">
+		</category>
+		<view
+			name="Joogie Console"
+			icon="icons/joogie.png"
+			category="org.joogie.plugin.views"
+			class="org.joogie.plugin.views.JoogieConsoleView"
+			id="org.joogie.plugin.views.JoogieConsoleView">
+		</view>
+	</extension>
+
+	<extension
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension
+			targetID="org.eclipse.jdt.ui.JavaPerspective">
+			<view
+				id="org.joogie.plugin.views.JoogieConsoleView"
+				ratio="0.5"
+				relationship="right"
+				relative="org.eclipse.ui.views.TaskList"
+				visible="true">
+			</view>
+		</perspectiveExtension>
+	</extension>
+
+</plugin>

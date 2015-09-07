@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>joogie-ws</display-name>
+	<welcome-file-list>
+		<welcome-file>index</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>org.joogie.ws.IndexServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Rise4funMetadataServlet</servlet-name>
+		<servlet-class>org.joogie.ws.rise4fun.Rise4funMetadataServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Rise4funRunServlet</servlet-name>
+		<servlet-class>org.joogie.ws.rise4fun.Rise4funRunServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Rise4funMetadataServlet</servlet-name>
+		<url-pattern>/metadata</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Rise4funRunServlet</servlet-name>
+		<url-pattern>/run</url-pattern>
+	</servlet-mapping>
+</web-app>

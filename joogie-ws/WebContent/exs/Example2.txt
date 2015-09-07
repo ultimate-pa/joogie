@@ -1,0 +1,10 @@
+class Example2 {
+
+	int foo(Object o) {
+		if (o != null) {
+			return o.hashCode();
+		}
+		System.err.println(o.toString() + " does not exist");
+		return 2;
+	}
+}

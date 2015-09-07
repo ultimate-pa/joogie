@@ -1,0 +1,11 @@
+class Example4 {
+
+	void foo(int a, int b) {
+		b = 1;
+		if (a > 0)
+			b--;
+		b = 1 / b;
+		if (a <= 0)
+			b = 1 / (1 - b);
+	}
+}

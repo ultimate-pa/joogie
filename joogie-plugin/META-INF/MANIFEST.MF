@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Joogie Plugin
+Bundle-SymbolicName: org.joogie.plugin; singleton:=true
+Bundle-Version: 1.0.1
+Bundle-Activator: org.joogie.plugin.Activator
+Bundle-Vendor: JOOGIE
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.jdt.core;bundle-version="3.7.3"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/args4j-2.0.18.jar,
+ lib/log4j-1.2.16.jar,
+ lib/soot-2.5.0.jar,
+ lib/scala-library.jar,
+ lib/princess.jar,
+ lib/jsyntaxpane-0.9.4.jar,
+ lib/joogie.jar,
+ .

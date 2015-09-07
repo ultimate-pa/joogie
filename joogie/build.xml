@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     Nov 23, 2011 01:00:00 PM
+
+     joogie
+     Joogie translates Java bytecode to Boogie
+
+     arlt
+     ====================================================================== -->
+<project name="joogie" default="default">
+	<description>
+    	Joogie translates Java bytecode to Boogie
+    </description>
+
+	<property name="bin" location="bin" />
+	<property name="lib" location="lib" />
+	<property name="src" location="src" />
+	<property name="dist" location="dist" />
+	<property name="doc" location="doc" />
+	<property name="aut" location="aut" />
+
+	<property name="normalizer-basedir" location="${basedir}/../normalizer-rhino" />
+
+	<!-- =================================
+          target: default
+         ================================= -->
+	<target name="default" description="default">
+
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+	          target: normalizer
+	         - - - - - - - - - - - - - - - - - -->
+	<target name="normalizer">
+		<!-- compile Normalizer -->
+		<ant antfile="${normalizer-basedir}/build.xml" dir="${normalizer-basedir}" />
+
+		<!-- build Normalizer jar -->
+		<jar destfile="${lib}/normalizer.jar" basedir="${normalizer-basedir}/bin" />
+
+		<!-- copy normalizer libs -->
+		<copy todir="${lib}">
+			<fileset dir="${normalizer-basedir}/lib" includes="**/*.jar" />
+		</copy>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: compile
+         - - - - - - - - - - - - - - - - - -->
+	<target name="compile" depends="normalizer">
+		<!-- delete and create directory -->
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${bin}" />
+		</delete>
+		<mkdir dir="${bin}" />
+
+		<!-- compile -->
+		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="false">
+			<classpath>
+				<fileset dir="${lib}" includes="**/*.jar" />
+			</classpath>
+		</javac>
+
+		<!-- copy resources -->
+		<copy todir="${bin}">
+			<fileset dir="${src}" includes="**/*.png" />
+			<fileset dir="${src}" includes="**/*.properties" />
+		</copy>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: dist
+         - - - - - - - - - - - - - - - - - -->
+	<target name="dist" depends="compile">
+		<!-- delete and create directory -->
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${dist}" />
+		</delete>
+		<mkdir dir="${dist}" />
+
+		<!-- build classpath -->
+		<path id="classpath">
+			<fileset dir="${lib}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+		<pathconvert property="classpath.manifest" refid="classpath" pathsep=" ">
+			<map from="${lib}\" to="" />
+		</pathconvert>
+
+		<!-- build JAR -->
+		<jar destfile="${dist}/joogie.jar" basedir="${bin}">
+			<manifest>
+				<attribute name="Main-Class" value="org.joogie.Main" />
+				<attribute name="Class-Path" value="args4j-2.0.18.jar cfg-plugin.jar js.jar jsyntaxpane-0.9.4.jar log4j-1.2.16.jar princess.jar scala-actors.jar scala-library.jar soot-2.5.0.jar" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: doc
+         - - - - - - - - - - - - - - - - - -->
+	<target name="doc" depends="compile">
+		<!-- delete and create directory -->
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${doc}" />
+		</delete>
+		<mkdir dir="${doc}" />
+
+		<!-- run javadoc -->
+		<javadoc sourcepath="${src}" destdir="${doc}" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: run-soot
+         - - - - - - - - - - - - - - - - - -->
+	<target name="run-soot" depends="compile">
+		<java classname="org.joogie.Main">
+			<arg line="-j ${input} -b ${output}" />
+			<classpath>
+				<pathelement path="${bin}" />
+				<fileset dir="${lib}" includes="**/*.jar" />
+			</classpath>
+		</java>
+	</target>
+
+</project>

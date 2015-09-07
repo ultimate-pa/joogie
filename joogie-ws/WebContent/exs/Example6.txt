@@ -1,0 +1,9 @@
+class Example6 {
+
+	void foo() {
+		String test = "too long";
+		if (test.length() == 3) {
+			System.err.println("unreachable");
+		}
+	}
+}
